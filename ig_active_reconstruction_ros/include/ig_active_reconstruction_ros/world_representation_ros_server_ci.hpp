@@ -89,4 +89,4 @@ namespace world_representation
 
 }
 
-#include "../src/code_base/world_representation_ros_server_ci.inl"
+#include <ig_active_reconstruction_ros/code_base/world_representation_ros_server_ci.inl>

@@ -13,7 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 
 catkin_package(
-  INCLUDE_DIRS include
+  INCLUDE_DIRS include src/code_base
   LIBRARIES ${PROJECT_NAME}
   CATKIN_DEPENDS
     roscpp
@@ -65,4 +65,16 @@ target_link_libraries(simple_viewspace_module
 )
 add_dependencies(simple_viewspace_module
  ${catkin_EXPORTED_TARGETS}
+)
+
+## Mark cpp header files for installation
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp"
+  PATTERN ".svn" EXCLUDE
+)
+install(DIRECTORY src/code_base
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.inl"
+  PATTERN ".svn" EXCLUDE
 )

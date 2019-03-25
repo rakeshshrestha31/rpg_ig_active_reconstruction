@@ -35,3 +35,10 @@ add_library(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME}
    ${catkin_LIBRARIES}
 )
+
+## Mark cpp header files for installation
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp" PATTERN "core"
+  PATTERN ".svn" EXCLUDE
+)
