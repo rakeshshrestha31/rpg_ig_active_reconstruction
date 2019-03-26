@@ -41,10 +41,10 @@ catkin_package(
     geometry_msgs
     std_msgs
   DEPENDS
-    PCL
+    # PCL
     Eigen
     octomap
-    Boost
+    # Boost
 )
 
 include_directories(include
@@ -66,7 +66,6 @@ set(${PROJECT_NAME}_LIBRARIES
    ${OCTOMAP_LIBRARIES}
    ${Boost_LIBRARIES}
 )
-
 
 add_library(${PROJECT_NAME} STATIC
   ${${PROJECT_NAME}_CODE_BASE}
