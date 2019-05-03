@@ -86,9 +86,11 @@ namespace octomap
   void CSCOPE::insertCloud( POINTCLOUD_TYPE& pointcloud )
   {
     tf::StampedTransform sensor_to_world_tf;
+    ros::Time ros_timestamp;
+    pcl_conversions::fromPCL(pointcloud.header.stamp, ros_timestamp);
     try
     {
-      tf_listener_.lookupTransform(world_frame_name_, pointcloud.header.frame_id, ros::Time(0), sensor_to_world_tf);
+      tf_listener_.lookupTransform(world_frame_name_, pointcloud.header.frame_id, ros_timestamp, sensor_to_world_tf);
     }
     catch(tf::TransformException& ex)
     {
